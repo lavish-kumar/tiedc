@@ -1,5 +1,5 @@
 <?php
-
+include "assets/php/dbcon.php";
 	
 	$sql = "SELECT * from latest_announements";
 	$run = mysqli_query($conn,$sql);	
