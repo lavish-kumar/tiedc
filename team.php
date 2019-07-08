@@ -1,3 +1,23 @@
+<?php
+
+	$conn = mysqli_connect('localhost','root','','a');
+	
+	session_start();
+
+	if (!$conn) {
+		die("Connection failed: " . $conn);
+	} 
+	
+	$sql = "SELECT * from team where year='2013' or year='2014' or year='f' or year='a' or year='2015'";
+	$run = mysqli_query($conn,$sql);
+
+	$sql = "SELECT * from team where year='f'";
+    $run2 = mysqli_query($conn,$sql);
+    $sql = "SELECT * from team where pos='Excom'";
+    $run3 = mysqli_query($conn,$sql);
+    $sql = "SELECT * FROM `team` where NOT pos='Excom' AND (NOT pos='Faculty')";
+	$run4 = mysqli_query($conn,$sql);
+?>
 <!DOCTYPE html>
 <html>
 
@@ -7,10 +27,13 @@
 <?php include "assets/components/customscrol.php";?>
     </head>
 
-<body>
+<body class="text-white">
  <?php include "assets/components/nav.php";?>
-
-  <div class="text-center py-5 gradient-overlay bg-secondary">
+<canvas id="nokey" style="position:absolute;background: linear-gradient(180deg,#A23C58, #4A62AC);" width="1000" height="2000">
+    Your Browser Don't Support Canvas, Please Download Chrome ^_^``
+</canvas>
+    <div id="content">
+  <div class="text-center py-5 ">
     <div class="container">
       <div class="row">
         <div class="col-md-12 my-5">
@@ -41,126 +64,94 @@
               <div class="tab-content mt-2">
                 <div class="tab-pane fade show active text-center" id="all" role="tabpanel">
                   <div class="row " style="background-color: rgba(255,255,255,0.05)">
+            <?php
+			while($row = mysqli_fetch_row($run))
+			{
+            ?>
+            <?php $nam =  explode(" ", $row[0]); ?>
                     <div class="col-md-4 p-4">
-                      <img class="img-fluid d-block rounded-circle mx-auto" src="https://pingendo.github.io/templates/sections/assets/test_meow.jpg">
+                      <img class="img-fluid d-block mx-auto" src="../a/assets/img/team/<?php if($nam[0]=='Prof.') echo strtolower($nam[2]); else if($nam[0]=="Dr.") echo strtolower($nam[1]); else echo ($nam[0]); ?>.jpg">
                       <p class="my-4">
                         <i></i>
                       </p>
                       <p>
-                        <b>Meow</b>
-                        <br>Senior developer</p>
+                        <b><?php echo $row[0]; ?></b>
+                        <br><?php if($row[15]!="Team Head") echo $row[1].' '.$row[15]; else echo $row[1];?></p>
                     </div>
-                    <div class="col-md-4 p-4">
-                      <img class="img-fluid d-block rounded-circle mx-auto" src="https://pingendo.github.io/templates/sections/assets/test_fish.jpg">
-                      <p class="my-4">
-                        <i></i>
-                      </p>
-                      <p>
-                        <b>J. L. Fish</b>
-                        <br>UI designer</p>
-                    </div>
-                    <div class="col-md-4 p-4">
-                      <img class="img-fluid d-block rounded-circle mx-auto" src="https://pingendo.github.io/templates/sections/assets/test_carlito.jpg">
-                      <p class="my-4">
-                        <i></i>
-                      </p>
-                      <p>
-                        <b>Carlito</b>
-                        <br>Boss</p>
-                    </div>
+                    
+                <?php
+			}				
+			?>    
                   </div>
                 </div>
                 <div class="tab-pane fade text-center" id="fm" role="tabpanel">
                   <div class="row " style="background-color: rgba(255,255,255,0.05)">
+                   <?php
+			while($row = mysqli_fetch_row($run2))
+			{
+            ?>
+            <?php $nam =  explode(" ", $row[0]); ?>
                     <div class="col-md-4 p-4">
-                      <img class="img-fluid d-block rounded-circle mx-auto" src="https://pingendo.github.io/templates/sections/assets/test_meow.jpg">
+                      <img class="img-fluid d-block mx-auto" src="../a/assets/img/team/<?php if($nam[0]=='Prof.') echo strtolower($nam[2]); else if($nam[0]=="Dr.") echo strtolower($nam[1]); else echo ($nam[0]); ?>.jpg">
                       <p class="my-4">
                         <i></i>
                       </p>
                       <p>
-                        <b>Meow</b>
-                        <br>Senior developer</p>
+                        <b><?php echo $row[0]; ?></b>
+                        <br><?php if($row[15]!="Team Head") echo $row[1].' '.$row[15]; else echo $row[1];?></p>
                     </div>
-                    <div class="col-md-4 p-4">
-                      <img class="img-fluid d-block rounded-circle mx-auto" src="https://pingendo.github.io/templates/sections/assets/test_fish.jpg">
-                      <p class="my-4">
-                        <i></i>
-                      </p>
-                      <p>
-                        <b>J. L. Fish</b>
-                        <br>UI designer</p>
-                    </div>
-                    <div class="col-md-4 p-4">
-                      <img class="img-fluid d-block rounded-circle mx-auto" src="https://pingendo.github.io/templates/sections/assets/test_carlito.jpg">
-                      <p class="my-4">
-                        <i></i>
-                      </p>
-                      <p>
-                        <b>Carlito</b>
-                        <br>Boss</p>
-                    </div>
+                    
+                <?php
+			}				
+			?>    
+                
                   </div>
                 </div>
                 <div class="tab-pane fade text-center" id="sm" role="tabpanel">
                   <div class="row " style="background-color: rgba(255,255,255,0.05)">
+                    <?php
+			while($row = mysqli_fetch_row($run3))
+			{
+            ?>
+            <?php $nam =  explode(" ", $row[0]); ?>
                     <div class="col-md-4 p-4">
-                      <img class="img-fluid d-block rounded-circle mx-auto" src="https://pingendo.github.io/templates/sections/assets/test_meow.jpg">
+                      <img class="img-fluid d-block mx-auto" src="../a/assets/img/team/<?php if($nam[0]=='Prof.') echo strtolower($nam[2]); else if($nam[0]=="Dr.") echo strtolower($nam[1]); else echo ($nam[0]); ?>.jpg">
                       <p class="my-4">
                         <i></i>
                       </p>
                       <p>
-                        <b>Meow</b>
-                        <br>Senior developer</p>
+                        <b><?php echo $row[0]; ?></b>
+                        <br><?php if($row[15]!="Team Head") echo $row[1].' '.$row[15]; else echo $row[1];?></p>
                     </div>
-                    <div class="col-md-4 p-4">
-                      <img class="img-fluid d-block rounded-circle mx-auto" src="https://pingendo.github.io/templates/sections/assets/test_fish.jpg">
-                      <p class="my-4">
-                        <i></i>
-                      </p>
-                      <p>
-                        <b>J. L. Fish</b>
-                        <br>UI designer</p>
-                    </div>
-                    <div class="col-md-4 p-4">
-                      <img class="img-fluid d-block rounded-circle mx-auto" src="https://pingendo.github.io/templates/sections/assets/test_carlito.jpg">
-                      <p class="my-4">
-                        <i></i>
-                      </p>
-                      <p>
-                        <b>Carlito</b>
-                        <br>Boss</p>
-                    </div>
+                    
+                <?php
+			}				
+			?>    
+                    
+                   
                   </div>
                 </div>
                 <div class="tab-pane fade text-center" id="sp" role="tabpanel">
                   <div class="row " style="background-color: rgba(255,255,255,0.05)">
+                    <?php
+			while($row = mysqli_fetch_row($run4))
+			{
+            ?>
+            <?php $nam =  explode(" ", $row[0]); ?>
                     <div class="col-md-4 p-4">
-                      <img class="img-fluid d-block rounded-circle mx-auto" src="https://pingendo.github.io/templates/sections/assets/test_meow.jpg">
+                      <img class="img-fluid d-block mx-auto" src="../a/assets/img/team/<?php if($nam[0]=='Prof.') echo strtolower($nam[2]); else if($nam[0]=="Dr.") echo strtolower($nam[1]); else echo ($nam[0]); ?>.jpg">
                       <p class="my-4">
                         <i></i>
                       </p>
                       <p>
-                        <b>Meow</b>
-                        <br>Senior developer</p>
+                        <b><?php echo $row[0]; ?></b>
+                        <br><?php if($row[15]!="Team Head") echo $row[1].' '.$row[15]; else echo $row[1];?></p>
                     </div>
-                    <div class="col-md-4 p-4">
-                      <img class="img-fluid d-block rounded-circle mx-auto" src="https://pingendo.github.io/templates/sections/assets/test_fish.jpg">
-                      <p class="my-4">
-                        <i> </i>
-                      </p>
-                      <p>
-                        <b>J. L. Fish</b>
-                        <br>UI designer</p>
-                    </div>
-                    <div class="col-md-4 p-4">
-                      <img class="img-fluid d-block rounded-circle mx-auto" src="https://pingendo.github.io/templates/sections/assets/test_carlito.jpg">
-                      <p class="my-4">
-                        <i></i>
-                      </p>
-                      <p>
-                        <b>Carlito</b>
-                        <br>Boss</p>
-                    </div>
+                    
+                <?php
+			}				
+			?>    
+                   
                   </div>
                 </div>
               </div>
@@ -170,7 +161,7 @@
       </div>
     </div>
   </div>
-
+</div>
     <?php include "assets/components/footer.php";?>
  
 

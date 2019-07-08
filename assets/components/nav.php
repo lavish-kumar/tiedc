@@ -10,6 +10,18 @@ print ('
       <div class="collapse navbar-collapse text-center justify-content-end" id="navbarNowUIKitFree">
         <ul class="navbar-nav">
             <li class="nav-item mx-1 align-items-center d-flex justify-content-center">
+            <a class="nav-link" href="about.php">
+              <i class="fa fa-fw fa-2x fa-info-circle"></i>ABOUT US</a>
+          </li>
+          <li class="nav-item mx-1 align-items-center d-flex justify-content-center">
+            <a class="nav-link" href="events.php">
+              <i class="fa fa-fw fa-2x fa-connectdevelop"></i>EVENTS</a>
+          </li>
+          <li class="nav-item mx-1 align-items-center d-flex justify-content-center">
+            <a class="nav-link" href="./blog">
+              <i class="fa fa-fw fa-2x fa-rss"></i>BLOG</a>
+          </li>
+            <li class="nav-item mx-1 align-items-center d-flex justify-content-center">
             <a class="nav-link" href="initiatives.php">
               <i class="fa fa-fw fa-2x fa-yelp"></i>INITIATIVES</a>
           </li>

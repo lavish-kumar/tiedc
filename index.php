@@ -2,11 +2,11 @@
 
  include 'assets/php/dbcon.php';
 	
-	$sql = "SELECT * from latest_announements";
+	$sql = "SELECT * from latest_announements order by datestamp desc";
 	$run = mysqli_query($conn,$sql);	
-    $sql = "SELECT * from upcoming_events";
+    $sql = "SELECT * from upcoming_events order by datestamp desc";
 	$run_2 = mysqli_query($conn,$sql);	
-    $sql = "SELECT * from activities";
+    $sql = "SELECT * from activities order by index_number desc";
 	$run_3 = mysqli_query($conn,$sql);
 	
 ?>
@@ -37,7 +37,11 @@
       </div>
     </div>
   </div>
-  <div class="py-5 text-white gradient-overlay bg-secondary">
+     <canvas id="nokey" style="position:absolute;background: linear-gradient(180deg,#A23C58, #4A62AC);" width="1000" height="2000">
+    Your Browser Don't Support Canvas, Please Download Chrome ^_^``
+</canvas>
+ <div id="content">
+    <div class="py-5 text-white">
     <div class="container">
       <div class="row">
         <div class="col-md-6">
@@ -56,7 +60,7 @@
 			{
 			
 			?>
-             <a href="#" class="list-group-item list-group-item-action flex-column align-items-start my-1 card" style="padding: 0.1rem">
+             <a href="notice.php?id=<?php echo $row[0]?>&type=latest_announements" class="list-group-item list-group-item-action flex-column align-items-start my-1 card" style="padding: 0.1rem">
             <div class="card">
             <div class="card-header bg-primary"><div class="d-flex w-100 justify-content-between">
                     <h5 class="mb-1"><?php echo $row[1]?></h5>
@@ -106,7 +110,7 @@ echo $days." days ago";
 			{
 			
 			?>
-             <a href="#" class="list-group-item list-group-item-action flex-column align-items-start my-1 card" style="padding: 0.1rem">
+             <a href="notice.php?id=<?php echo $row[0]?>&type=upcoming_events" class="list-group-item list-group-item-action flex-column align-items-start my-1 card" style="padding: 0.1rem">
             <div class="card">
             <div class="card-header bg-primary"><div class="d-flex w-100 justify-content-between">
                     <h5 class="mb-1"><?php echo $row[1]?></h5>
@@ -143,11 +147,11 @@ echo $days." days ago";
       </div>
     </div>
   </div>
-  <div class="py-5   gradient-overlay-continue bg-secondary">
+  <div class="py-5 " style="background-color: rgba(255,255,255,0.1)">
     <div class="container">
       <div class="row">
         <div class="col-md-12">
-          <h1 class="display-1 text-center p p-3">Activities @ E-Cell</h1>
+          <h1 class="display-1 text-center p p-3 text-white">Activities @ E-Cell</h1>
         </div>
       </div>
       <div class="row">
@@ -176,7 +180,7 @@ echo $days." days ago";
       </div>
     </div>
   </div>
-  <div class="py-5 text-white inverse-gradient-overlay bg-secondary">
+  <div class="py-5 text-white">
     <div class="container">
       <div class="row">
         <div class="align-self-center p-5 col-md-4">
@@ -213,6 +217,7 @@ echo $days." days ago";
       </div>
     </div>
   </div>
+      </div>
   <?php include "assets/components/footer.php";?>
   
 <?php mysqli_close($conn); ?>

@@ -7,6 +7,7 @@ print '  <meta charset="utf-8">
   <link rel="stylesheet" href="now-ui-kit.css" type="text/css">
   <link rel="stylesheet" href="assets/css/nucleo-icons.css" type="text/css">
   <script src="assets/js/navbar-ontop.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
   
   ';

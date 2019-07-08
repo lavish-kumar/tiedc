@@ -1,79 +1,4 @@
-<!DOCTYPE html>
-<html>
-
-<head>
- <?php include "assets/components/headcontent.php";?>
-  <title>TIEDC | JUIT</title>
-<?php include "assets/components/customscrol.php";?>
-     </head>
-
-<body>
-    <canvas id="nokey" style="position:absolute;background: linear-gradient(180deg,#A23C58, #4A62AC);" width="1000" height="2000">
-    Your Browser Don't Support Canvas, Please Download Chrome ^_^``
-</canvas>
-   <?php include "assets/components/nav.php";?>
-  
-  <div id="content" class="text-center py-5">
-    <div class="container">
-      <div class="row ">
-        <div class="col-md-12 my-5" style="color: white;">
-          <h1 class="">INITIATIVES</h1>
-          <p class="lead">Few steps of our community towards a
-            <b>better tomorrow</b>.</p>
-        </div>
-      </div>
-      <div  class="row">
-        <div class="col-md-12">
-          <div class="p-4 card" style="background-color: rgba(255,255,255,0.1)">
-            <div class="py-5 text-white blockquote card" style="background-image: url('assets/img/Anchor.png');background-repeat:no-repeat;background-size:cover;background-position:center center;">
-              <div class="container">
-                <div class="row">
-                  <div class="col-md-4  card text-light" style="background-color: rgba(0, 0, 0, 0.5);">
-                    <p class="lead">
-                      <i>"I have been using Pingendo since a while. There's no way I can leave it now or never. And many people are doing the same, and I seriously do not understand who isn't."</i>
-                      <br> </p>
-                    <p class="lead m-0">
-                      <b>Lily Jonhansen - Times</b>
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="py-5 text-white blockquote card" style="background-image: url(&quot;https://pingendo.github.io/templates/sections/assets/test_lily.jpg&quot;);">
-              <div class="container">
-                <div class="row">
-                  <div class="col-md-4">
-                    <p class="lead">
-                      <i>"I have been using Pingendo since a while. There's no way I can leave it now or never. And many people are doing the same, and I seriously do not understand who isn't."</i>
-                      <br> </p>
-                    <p class="lead m-0">
-                      <b>Lily Jonhansen - Times</b>
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="py-5 text-white blockquote card" style="background-image: url(&quot;https://pingendo.github.io/templates/sections/assets/test_lily.jpg&quot;);">
-              <div class="container">
-                <div class="row">
-                  <div class="col-md-4">
-                    <p class="lead">
-                      <i>"I have been using Pingendo since a while. There's no way I can leave it now or never. And many people are doing the same, and I seriously do not understand who isn't."</i>
-                      <br> </p>
-                    <p class="lead m-0">
-                      <b>Lily Jonhansen - Times</b>
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <?php include "assets/components/footer.php";?>
-<script>var canvas = document.getElementById('nokey'),
+var canvas = document.getElementById('nokey'),
    can_w = parseInt(canvas.getAttribute('width')),
    can_h = parseInt(canvas.getAttribute('height')),
    ctx = canvas.getContext('2d');
@@ -101,7 +26,7 @@ var ball = {
     
 // Line
    link_line_width = 0.8,
-   dis_limit = 300,
+   dis_limit =180,
    add_mouse_point = true,
    mouse_in = false,
    mouse_ball = {
@@ -268,7 +193,7 @@ function getDisOf(b1, b2){
 
 // add balls if there a little balls
 function addBallIfy(){
-    if(balls.length < 50){
+    if(balls.length < 25){
         balls.push(getRandomBall());
     }
 }
@@ -346,10 +271,3 @@ canvas.addEventListener('mousemove', function(e){
     // console.log(mouse_ball);
 });
 
-
-    </script>
-
-
-</body>
-
-</html>

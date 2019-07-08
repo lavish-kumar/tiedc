@@ -59,5 +59,15 @@ print '
             });
           });
   </script>
+  <script src="./assets/js/particles.js"></script>
+<script src="./assets/js/ResizeSensor.js"></script>
+<script src="./assets/js/ElementQueries.js"></script>
+<script>
+        
+new ResizeSensor(jQuery(\'#content\'), function(){ 
+    console.log("body resize");
+    initCanvas();
+});
+</script>
  ';
 ?>
